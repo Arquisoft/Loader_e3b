@@ -15,6 +15,6 @@ Loader e3b
 -Rubén de la Varga Cabero (UO246977)
 
 # Authors 2018
--Diego Álvarez Guinarte (UO251682)
+-Diego Álvarez Guinarte (UO251682)<br>
 -Manuel Junco Diez (UO252010)
 -Ivan Suarez Castiñeiras (UO244730)
