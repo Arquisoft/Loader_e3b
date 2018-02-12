@@ -8,13 +8,13 @@ Loader e3b
 
 # Authors 2017
 
--Daniel Alba Muñiz (UO245188)
--José Luis Bugallo González (UO244702)
--Ignacio Escribano Burgos (UO227766)
--Daniel Duque Barrientos (UO245553)
--Rubén de la Varga Cabero (UO246977)
+-Daniel Alba Muñiz (UO245188)<br>
+-José Luis Bugallo González (UO244702)<br>
+-Ignacio Escribano Burgos (UO227766)<br>
+-Daniel Duque Barrientos (UO245553)<br>
+-Rubén de la Varga Cabero (UO246977)<br>
 
 # Authors 2018
 -Diego Álvarez Guinarte (UO251682)<br>
--Manuel Junco Diez (UO252010)
--Ivan Suarez Castiñeiras (UO244730)
+-Manuel Junco Diez (UO252010)<br>
+-Ivan Suarez Castiñeiras (UO244730)<br>
