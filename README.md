@@ -18,3 +18,4 @@ Loader e3b
 + Diego Álvarez Guinarte (UO251682)
 + Manuel Junco Diez (UO252010)
 + Ivan Suarez Castiñeiras (UO244730)
++ Pablo Gonzalez Martinez (UO245699)
