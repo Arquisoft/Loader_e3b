@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.logging.Level;
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -108,10 +109,11 @@ public class RList implements ReadList {
 	}
 
 	private void crearUsuarios(List<XSSFCell> list) throws FileNotFoundException, DocumentException, IOException {
-		Agent user = new Agent(list.get(0).getStringCellValue(),
-				new Localizacion(Integer.parseInt(list.get(1).getStringCellValue()),
-				Integer.parseInt(list.get(2).getStringCellValue())), list.get(3).getStringCellValue(), 
-				list.get(4).getStringCellValue(),list.get(5).getStringCellValue());
+		DataFormatter formatter = new DataFormatter();
+		String[] local = list.get(1).getStringCellValue().split(" ");
+		Agent user = new Agent(list.get(0).getStringCellValue(),new Localizacion(Double.parseDouble(local[0]),
+				Double.parseDouble(local[1])), list.get(2).getStringCellValue(), 
+		formatter.formatCellValue(list.get(3)),formatter.formatCellValue(list.get(4)));
 		InsertR insert = new InsertR();
 		insert.save(user);
 		//getaF().saveData(user);
