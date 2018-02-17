@@ -25,6 +25,8 @@ public class WordLetter extends Letter{
 		XWPFParagraph paragraph = documento.createParagraph();
 		XWPFRun run = paragraph.createRun();
 		run.setText("Nombre: " + user.getNombre());
+		run.setText("Identificador: " + user.getIdentificador());
+		run.setText("Clave: " + user.getClave());
 		run.addBreak();		
 		documento.write(carta);
 		documento.close();
