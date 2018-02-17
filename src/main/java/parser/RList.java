@@ -9,8 +9,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 
-import reportwriter.ReportWriter;
-
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -20,8 +18,11 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.lowagie.text.DocumentException;
 
-import executer.*;
-import model.User;
+import executer.ActionFacade;
+import executer.ActionFacadeClass;
+import model.Agent;
+import model.Localizacion;
+import reportwriter.ReportWriter;
 
 
 public class RList implements ReadList {
@@ -107,10 +108,10 @@ public class RList implements ReadList {
 	}
 
 	private void crearUsuarios(List<XSSFCell> list) throws FileNotFoundException, DocumentException, IOException {
-		User user = new User(list.get(0).getStringCellValue(), list.get(1).getStringCellValue(),
-				list.get(2).getStringCellValue(), list.get(3).getDateCellValue(), 
-				list.get(4).getStringCellValue(),list.get(5).getStringCellValue(), 
-				list.get(6).getStringCellValue());
+		Agent user = new Agent(list.get(0).getStringCellValue(),
+				new Localizacion(Integer.parseInt(list.get(1).getStringCellValue()),
+				Integer.parseInt(list.get(2).getStringCellValue())), list.get(3).getStringCellValue(), 
+				list.get(4).getStringCellValue(),list.get(5).getStringCellValue());
 		InsertR insert = new InsertR();
 		insert.save(user);
 		//getaF().saveData(user);
