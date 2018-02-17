@@ -5,8 +5,6 @@ import static org.junit.Assert.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Date;
-
 import org.junit.Test;
 
 import com.lowagie.text.DocumentException;
@@ -18,9 +16,8 @@ public class LetterTest {
 
 	@Test
 	public void creadasCorrectamente() throws FileNotFoundException, DocumentException, IOException {
-		Letter letter = new PdfLetter();
-		Date date = new Date(System.currentTimeMillis());
-		Agent user1 = new Agent("Paco", "Francisco", "francisco@gmail.com", date, "C\\Uría", "Español", "87654321P");
+		Letter letter = new PdfLetter();		
+		Agent user1 = new Agent("Paco", null, "francisco@gmail.com","paco123","Ciudadano");
 		letter.createLetter(user1);
 
 		File file = new File("cartas/pdf/87654321P.pdf");

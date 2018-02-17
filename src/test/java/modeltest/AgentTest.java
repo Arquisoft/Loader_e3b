@@ -2,9 +2,6 @@ package modeltest;
 
 import static org.junit.Assert.*;
 
-import java.awt.Point;
-import java.util.Date;
-
 import model.Agent;
 import model.Localizacion;
 
@@ -13,8 +10,7 @@ import org.junit.Test;
 public class AgentTest {
 
 	@Test
-	public void testEquals() {
-		Date date = new Date(System.currentTimeMillis());
+	public void testEquals() {		
 		//coordenadas opcionales 
 		Agent agenteCiudadano1 = new Agent("Dani",null,"dani35@gmail.com","dani123","Ciudadano");
 		Agent agenteCiudadano1_1 = new Agent("Dani",null,"dani1456@gmail.com","dani123","Ciudadano");

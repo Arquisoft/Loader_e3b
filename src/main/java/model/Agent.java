@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Agents")
+@Table(name = "TAgent")
 public class Agent implements Serializable {
 	/**
 	 * 
