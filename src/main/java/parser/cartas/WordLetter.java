@@ -24,8 +24,8 @@ public class WordLetter extends Letter{
 				"cartas/word/" + user.getIdentificador() + ".docx");
 		XWPFParagraph paragraph = documento.createParagraph();
 		XWPFRun run = paragraph.createRun();
-		run.setText("Nombre: " + user.getNombre());
-		run.setText("Identificador: " + user.getIdentificador());
+		run.setText("Nombre: " + user.getNombre()+"\n");
+		run.setText("Identificador: " + user.getIdentificador()+"\n");
 		run.setText("Clave: " + user.getClave());
 		run.addBreak();		
 		documento.write(carta);
