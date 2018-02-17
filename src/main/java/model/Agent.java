@@ -2,7 +2,7 @@ package model;
 
 import java.awt.Point;
 import java.io.Serializable;
-import java.util.Date;
+import java.util.Random;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,6 +25,7 @@ public class Agent implements Serializable {
 	private String email;
 	private String identificador;
 	private String tipo;
+	private String clave;
 
 	Agent() {
 	}
@@ -36,6 +37,7 @@ public class Agent implements Serializable {
 		this.email = email;
 		this.identificador = identificador;
 		this.tipo = tipo;
+		generateClave();
 	}
 
 	public String getNombre() {
@@ -106,6 +108,16 @@ public class Agent implements Serializable {
 	@Override
 	public String toString() {
 		return "Identificador: " + this.identificador;
+	}
+
+	public String getClave() {
+		return clave;
+	}
+
+	public void generateClave() {
+		Random r = new Random();
+		this.clave = r.nextInt(99999)+"";
+		
 	}
 
 	
