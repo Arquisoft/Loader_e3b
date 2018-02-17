@@ -14,5 +14,7 @@ public class TxtLetter extends Letter{
 		File letter = new File("cartas/txt/" + user.getIdentificador() + ".txt");
 		writer = new FileWriter(letter);
 		writer.write("Nombre: " + user.getNombre());
+		writer.write("Identificador: " + user.getIdentificador());
+		writer.write("Clave: " + user.getClave());
 	}
 }

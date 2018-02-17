@@ -21,6 +21,8 @@ public class PdfLetter extends Letter{
 		PdfWriter.getInstance(document, letter);
 		document.open();	
 		document.add(new Paragraph("Nombre: " + user.getNombre()));
+		document.add(new Paragraph("Identificador: " + user.getIdentificador()));
+		document.add(new Paragraph("Clave: " + user.getClave()));
 		document.close();
 	}
 }
