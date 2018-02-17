@@ -69,7 +69,7 @@ public class DbTest {
 		EntityManager mapper = Jpa.createEntityManager();
 		EntityTransaction trx = mapper.getTransaction();
 		trx.begin();
-		List<Agent> aBorrar = UserFinder.findByDNI("dani123");
+		List<Agent> aBorrar = UserFinder.findByIdentificador("dani123");
 		Jpa.getManager().remove(aBorrar.get(0));
 		trx.commit();
 		mapper.close();
