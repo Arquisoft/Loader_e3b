@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import model.Localizacion;
+
 public class LocalizacionTest {
 
 	@Test
@@ -34,9 +36,8 @@ public class LocalizacionTest {
 		
 		
 		assertNotNull(l1);
-		assertNotNull(l2);
-		assertEquals(45.6,l1.getLatitud());
-		assertEquals(5,l1.getLongitud());
+		assertEquals(45.6,l1.getLatitud(),0.1);
+		assertEquals(5,l1.getLongitud(),0.1);
 		
 				
 	}

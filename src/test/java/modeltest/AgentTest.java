@@ -5,7 +5,8 @@ import static org.junit.Assert.*;
 import java.awt.Point;
 import java.util.Date;
 
-import model.User;
+import model.Agent;
+import model.Localizacion;
 
 import org.junit.Test;
 
@@ -77,19 +78,21 @@ public class AgentTest {
 
 		assertNotNull(agenteCiudadano1);
 		assertEquals("Dani", agenteCiudadano1.getNombre());
-		assertEquals("email@gmail.com", agenteCiudadano1.getEmail());
-		assertEquals("dani123", agenteCiudadano1.getIdentificador);
+		assertEquals("dani35@gmail.com", agenteCiudadano1.getEmail());
+		assertEquals("dani123", agenteCiudadano1.getIdentificador());
 		assertEquals("Ciudadano", agenteCiudadano1.getTipo());
 		assertNull(agenteCiudadano1.getLocalizacion());
 		
 		Agent agentSensor1 = new Agent("Sensor 1",new Localizacion(43,-6),"sensor@gmail.com","sensor123","Sensor");
 		
-		assertNotNull(agenteSensor1);
-		assertEquals("Sensor 1", agenteCiudadano1.getNombre());
-		assertEquals("sensor@gmail.com", agenteCiudadano1.getEmail());
-		assertEquals("sensor123", agenteCiudadano1.getIdentificador);
-		assertEquals("Sensor", agenteCiudadano1.getTipo());
-		assertNull(agenteSensor1.getLocalizacion());
+		assertNotNull(agentSensor1);
+		assertEquals("Sensor 1", agentSensor1.getNombre());
+		assertEquals("sensor@gmail.com", agentSensor1.getEmail());
+		assertEquals("sensor123", agentSensor1.getIdentificador());
+		assertEquals("Sensor", agentSensor1.getTipo());
+		assertNotNull(agentSensor1.getLocalizacion());
+		assertTrue(43==agentSensor1.getLocalizacion().getLatitud());
+		assertTrue(-6==agentSensor1.getLocalizacion().getLongitud());
 
 	}
 
