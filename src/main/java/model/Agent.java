@@ -1,6 +1,5 @@
 package model;
 
-import java.awt.Point;
 import java.io.Serializable;
 import java.util.Random;
 
@@ -21,7 +20,7 @@ public class Agent implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nombre;	
-	private Point localizacion;
+	private Localizacion localizacion;
 	private String email;
 	private String identificador;
 	private String tipo;
@@ -30,7 +29,7 @@ public class Agent implements Serializable {
 	Agent() {
 	}
 
-	public Agent(String nombre, Point localizacion, String email, String identificador, String tipo) {
+	public Agent(String nombre, Localizacion localizacion, String email, String identificador, String tipo) {
 		super();
 		this.nombre = nombre;
 		this.localizacion = localizacion;
@@ -48,11 +47,11 @@ public class Agent implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public Point getLocalizacion() {
+	public Localizacion getLocalizacion() {
 		return localizacion;
 	}
 
-	public void setLocalizacion(Point localizacion) {
+	public void setLocalizacion(Localizacion localizacion) {
 		this.localizacion = localizacion;
 	}
 
@@ -107,7 +106,7 @@ public class Agent implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "Identificador: " + this.identificador;
+		return "Agent [nombre=" + nombre + ", localizacion=" + localizacion + ", email=" + email + ", identificador=" + identificador + ", tipo=" + tipo + "]";
 	}
 
 	public String getClave() {
