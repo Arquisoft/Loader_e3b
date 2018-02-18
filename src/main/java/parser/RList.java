@@ -67,9 +67,7 @@ public class RList implements ReadList {
 					while (cells.hasNext()) {
 						cell = (XSSFCell) cells.next();
 						user.add(cell);
-						System.out.print(cell.toString() + " ; ");
 					}
-					System.out.println();
 					allUsers.add(user);
 					crearUsuarios(user);
 				}

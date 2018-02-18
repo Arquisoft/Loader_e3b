@@ -30,7 +30,7 @@ public class InsertP implements Insert {
 		try {
 			if (!UserFinder.findByIdentificador(user.getIdentificador()).isEmpty()) {
 				ReportWriter.getInstance().getWriteReport().log(Level.WARNING,
-						"El usuario con el dni " + user.getIdentificador() + " ya existe en la base de datos");
+						"El usuario con el identificador " + user.getIdentificador() + " ya existe en la base de datos");
 				trx.rollback();
 			} else if (!UserFinder.findByEmail(user.getEmail()).isEmpty()) {
 				ReportWriter.getInstance().getWriteReport().log(Level.WARNING,
@@ -39,6 +39,7 @@ public class InsertP implements Insert {
 			} else {
 				Jpa.getManager().persist(user);
 				trx.commit();
+				System.out.println("Agente añadido correctamente - Datos del agente  :  "+user.getNombre() + " ; " + user.getLocalizacion() + ";" + user.getEmail() + ";" + user.getIdentificador()+ ";"+ user.getTipo());
 				Letter letter = new PdfLetter();
 				letter.createLetter(user);
 				letter = new TxtLetter();

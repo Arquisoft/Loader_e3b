@@ -39,11 +39,8 @@ public class LoadUsers {
 				+ "agentes para un sistema de participacion ciudadana");
 		System.out.println("Realizado por el grupo E3B compuesto por: ");
 		System.out.println("Pablo Gonzalez Martinez (UO245699)");
-		System.out.println("Jose Luis Bugallo Gonzalez (Uo244702)");
-		System.out.println("Ignacio Escribano Burgos (UO227766)");
-		System.out.println("Daniel Duque Barrientos (UO245553)");
-		System.out.println("Ruben de la Varga Cabero (UO246977)");
-
+		System.out.println("Diego Álvarez Guinarte (UO251682)");
+		System.out.println("Manuel Junco Diez (UO252010)");
 	}
 
 	private void showHelp() {
