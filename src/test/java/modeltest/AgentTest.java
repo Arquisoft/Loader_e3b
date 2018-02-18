@@ -68,7 +68,7 @@ public class AgentTest {
 
 	}
 
-	@Test(expected = RuntimeException.class)
+	@Test(expected = ModelException.class)
 	public void testConstructor() throws ModelException {
 		
 		Agent agenteCiudadano1 = new Agent("Dani",null,"dani35@gmail.com","dani123","Ciudadano");
