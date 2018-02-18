@@ -39,7 +39,7 @@ public class ParserTest {
 				st.append(list1.get(i).toString() + " ");
 		}
 
-		assertEquals(st.toString(), "Juan Torres Pardo juan@example.com C/ Federico García Lorca 2 Español 90500084Y ");
+		assertEquals(st.toString(), "Juan Torres Pardo 32.21 45.34 juan@example.com 1.0 ");
 
 		st = new StringBuilder();
 
@@ -48,7 +48,7 @@ public class ParserTest {
 				st.append(list2.get(i).toString() + " ");
 		}
 
-		assertEquals(st.toString(), "Luis López Fernando luis@example.com C/ Real Oviedo 2 Español 19160962F ");
+		assertEquals(st.toString(), "Luis López Fernando 76.14 98.54 luis@example.com 1.0 ");
 
 		st = new StringBuilder();
 
@@ -57,7 +57,7 @@ public class ParserTest {
 				st.append(list3.get(i).toString() + " ");
 		}
 
-		assertEquals(st.toString(), "Ana Torres Pardo ana@example.com Av. De la Constitución 8 Español 09940449X ");
+		assertEquals(st.toString(), "Ana Torres Pardo 76.34 57.73 ana@example.com 1.0 ");
 	}
 
 	@Test(expected = FileNotFoundException.class)
