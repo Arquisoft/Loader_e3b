@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import model.util.ModelException;
+
 @Entity
 @Table(name = "TAgent")
 public class Agent implements Serializable {
@@ -29,13 +31,15 @@ public class Agent implements Serializable {
 	Agent() {
 	}
 
-	public Agent(String nombre, Localizacion localizacion, String email, String identificador, String tipo) {
+	public Agent(String nombre, Localizacion localizacion, String email, String identificador, String tipo) throws ModelException {
 		super();
 		this.nombre = nombre;
 		this.localizacion = localizacion;
 		this.email = email;
 		this.identificador = identificador;
 		this.tipo = tipo;
+		if(tipo.toLowerCase().equals("sensor") && localizacion==null)
+			throw new ModelException("Un sensor debe tener localización");
 		generateClave();
 	}
 

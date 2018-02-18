@@ -4,13 +4,14 @@ import static org.junit.Assert.*;
 
 import model.Agent;
 import model.Localizacion;
+import model.util.ModelException;
 
 import org.junit.Test;
 
 public class AgentTest {
 
 	@Test
-	public void testEquals() {		
+	public void testEquals() throws ModelException {		
 		//coordenadas opcionales 
 		Agent agenteCiudadano1 = new Agent("Dani",null,"dani35@gmail.com","dani123","Ciudadano");
 		Agent agenteCiudadano1_1 = new Agent("Dani",null,"dani1456@gmail.com","dani123","Ciudadano");
@@ -48,7 +49,7 @@ public class AgentTest {
 	}
 
 	@Test
-	public void testHashCode() {
+	public void testHashCode() throws ModelException {
 	
 		Agent agenteCiudadano1 = new Agent("Dani",null,"dani35@gmail.com","dani123","Ciudadano");
 		Agent agenteCiudadano1_1 = new Agent("Dani",null,"dani1456@gmail.com","dani123","Ciudadano");
@@ -67,8 +68,8 @@ public class AgentTest {
 
 	}
 
-	@Test
-	public void testConstructor() {
+	@Test(expected = RuntimeException.class)
+	public void testConstructor() throws ModelException {
 		
 		Agent agenteCiudadano1 = new Agent("Dani",null,"dani35@gmail.com","dani123","Ciudadano");
 
@@ -89,6 +90,11 @@ public class AgentTest {
 		assertNotNull(agentSensor1.getLocalizacion());
 		assertTrue(43==agentSensor1.getLocalizacion().getLatitud());
 		assertTrue(-6==agentSensor1.getLocalizacion().getLongitud());
+		
+		
+		new Agent("Sensor 1",null,"sensor@gmail.com","sensor123","Sensor");
+			
+		
 
 	}
 

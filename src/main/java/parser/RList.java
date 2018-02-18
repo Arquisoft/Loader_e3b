@@ -23,6 +23,7 @@ import executer.ActionFacade;
 import executer.ActionFacadeClass;
 import model.Agent;
 import model.Localizacion;
+import model.util.ModelException;
 import reportwriter.ReportWriter;
 
 
@@ -79,6 +80,8 @@ public class RList implements ReadList {
 		catch (IOException ioe) {
 			System.err.println("Problema con la lectura del excel en la linea " + i);
 			ReportWriter.getInstance().getWriteReport().log(Level.WARNING, "Problema con la lectura del excel en la linea " + i);
+		} catch (ModelException e) {
+			System.err.println("Se ha intentado crear un sensor sin localización o con valor nulo");
 		}finally {
 			if (excelFile != null){
 				try {
@@ -106,7 +109,7 @@ public class RList implements ReadList {
 		this.aF = aF;
 	}
 
-	private void crearUsuarios(List<XSSFCell> list) throws FileNotFoundException, DocumentException, IOException {
+	private void crearUsuarios(List<XSSFCell> list) throws FileNotFoundException, DocumentException, IOException, NumberFormatException, ModelException {
 		DataFormatter formatter = new DataFormatter();
 		String[] local = list.get(1).getStringCellValue().split(" ");
 		Agent user = new Agent(list.get(0).getStringCellValue(),new Localizacion(Double.parseDouble(local[0]),

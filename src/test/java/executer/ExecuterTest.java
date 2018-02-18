@@ -12,13 +12,14 @@ import org.junit.Test;
 import com.lowagie.text.DocumentException;
 
 import model.Agent;
+import model.util.ModelException;
 import persistence.UserFinder;
 import persistence.util.Jpa;
 
 public class ExecuterTest {
 
 	@Test
-	public void testActionSingleton() throws FileNotFoundException, DocumentException, IOException {
+	public void testActionSingleton() throws FileNotFoundException, DocumentException, IOException, ModelException {
 		ActionSingleton aS = ActionSingleton.getInstance();
 		ActionSingleton aS2 = ActionSingleton.getInstance();
 		

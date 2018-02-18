@@ -18,6 +18,7 @@ import com.lowagie.text.DocumentException;
 
 import executer.ActionSingleton;
 import model.Agent;
+import model.util.ModelException;
 import persistence.UserFinder;
 import persistence.util.Jpa;
 
@@ -27,7 +28,7 @@ public class DbTest {
 	
 	
 	@Before
-	public void creacion() throws FileNotFoundException, DocumentException, IOException
+	public void creacion() throws FileNotFoundException, DocumentException, IOException, ModelException
 	{
 		ActionSingleton aS = ActionSingleton.getInstance();
 		user1 = new Agent("Dani",null,"dani35@gmail.com","dani123","Ciudadano");
@@ -43,9 +44,10 @@ public class DbTest {
 	 * @throws FileNotFoundException
 	 * @throws DocumentException
 	 * @throws IOException
+	 * @throws ModelException 
 	 */
 	@Test
-	public void usuarioYaExistente() throws FileNotFoundException, DocumentException, IOException {
+	public void usuarioYaExistente() throws FileNotFoundException, DocumentException, IOException, ModelException {
 		
 		ActionSingleton aS = ActionSingleton.getInstance();
 		 user2 = new Agent("Dani",null,"dani35@hotmail.com","dani123","Ciudadano");
@@ -67,7 +69,7 @@ public class DbTest {
 	}
 
 	@Test
-	public void usuarioYaExistenteEmail() throws FileNotFoundException, DocumentException, IOException {
+	public void usuarioYaExistenteEmail() throws FileNotFoundException, DocumentException, IOException, ModelException {
 		
 		ActionSingleton aS = ActionSingleton.getInstance();
 		 user2 = new Agent("Dani",null,"dani35@gmail.com","dani1","Ciudadano");
