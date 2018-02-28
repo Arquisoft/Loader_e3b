@@ -22,10 +22,10 @@ public class Agent implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nombre;	
-	private Localizacion localizacion;
+	private Localizacion location;
 	private String email;
-	private String identificador;
-	private String tipo;
+	private String ident;
+	private String kind;
 	private String clave;
 
 	Agent() {
@@ -34,10 +34,10 @@ public class Agent implements Serializable {
 	public Agent(String nombre, Localizacion localizacion, String email, String identificador, String tipo) throws ModelException {
 		super();
 		this.nombre = nombre;
-		this.localizacion = localizacion;
+		this.location = localizacion;
 		this.email = email;
-		this.identificador = identificador;
-		this.tipo = tipo;
+		this.ident = identificador;
+		this.kind = tipo;
 		if(tipo.toLowerCase().equals("sensor") && localizacion==null)
 			throw new ModelException("Un sensor debe tener localización");
 		generateClave();
@@ -52,11 +52,11 @@ public class Agent implements Serializable {
 	}
 
 	public Localizacion getLocalizacion() {
-		return localizacion;
+		return location;
 	}
 
 	public void setLocalizacion(Localizacion localizacion) {
-		this.localizacion = localizacion;
+		this.location = localizacion;
 	}
 
 	public String getEmail() {
@@ -68,26 +68,26 @@ public class Agent implements Serializable {
 	}
 
 	public String getIdentificador() {
-		return identificador;
+		return ident;
 	}
 
 	public void setIdentificador(String identificador) {
-		this.identificador = identificador;
+		this.ident = identificador;
 	}
 
 	public String getTipo() {
-		return tipo;
+		return kind;
 	}
 
 	public void setTipo(String tipo) {
-		this.tipo = tipo;
+		this.kind = tipo;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((identificador == null) ? 0 : identificador.hashCode());
+		result = prime * result + ((ident == null) ? 0 : ident.hashCode());
 		return result;
 	}
 
@@ -100,17 +100,17 @@ public class Agent implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Agent other = (Agent) obj;
-		if (identificador == null) {
-			if (other.identificador != null)
+		if (ident == null) {
+			if (other.ident != null)
 				return false;
-		} else if (!identificador.equals(other.identificador))
+		} else if (!ident.equals(other.ident))
 			return false;
 		return true;
 	}	
 	
 	@Override
 	public String toString() {
-		return "Agent [nombre=" + nombre + ", localizacion=" + localizacion + ", email=" + email + ", identificador=" + identificador + ", tipo=" + tipo + "]";
+		return "Agent [nombre=" + nombre + ", localizacion=" + location + ", email=" + email + ", identificador=" + ident + ", tipo=" + kind + "]";
 	}
 
 	public String getClave() {
