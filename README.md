@@ -19,3 +19,16 @@ Loader e3b
 + Manuel Junco Diez (UO252010)
 + Ivan Suarez Castiñeiras (UO244730)
 + Pablo Gonzalez Martinez (UO245699)
+
+
+
+# Instrucciones para ejecutar
++ Importar repositorio a Eclipse desde Github
++ Botón derecho - Configure - Convert to Maven project y esperar a que se descarguen las dependencias
++ Ejecutar LoadUsers (en el paquete main) con los argumentos load src/test/resources/test.xlsx. 
+ 
+ Para especificar argumentos en Eclipse, acceder al menú Run Configurations - LoadUsers - Arguments
+ 
+ Adjunto imagen
+ 
+ ![alt text](https://i.imgur.com/4i1CFRR.png)
