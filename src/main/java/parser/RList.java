@@ -1,10 +1,13 @@
 package parser;
 
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
@@ -30,7 +33,7 @@ import reportwriter.ReportWriter;
 public class RList implements ReadList {
 	private ActionFacade aF = new ActionFacadeClass();
 	private ArrayList<List<XSSFCell>> allUsers;
-
+	private HashMap<String,String> map;
 	/**
 	 * Lee el fichero excel de la ruta pasada por parametro Si el fichero no
 	 * esta en formato excel, detiene la lectura y escribe en el log la causa
@@ -108,13 +111,46 @@ public class RList implements ReadList {
 	public void setaF(ActionFacade aF) {
 		this.aF = aF;
 	}
+	
+	private void loadFicheroMaestro(String path){
+		
+		BufferedReader br;
+		try {
+			br = new BufferedReader(new FileReader("src/main/resources/agentTypes.csv"));
+			String line =  null;
+		    map = new HashMap<String, String>();
+
+		    while((line=br.readLine())!=null){
+		    	System.out.println("line: "+line);
+		        String str[] = line.split(";");
+		        map.put(str[0], str[1]);
+		    }
+		  
+		    
+		    System.out.println(map);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    
+	 }
+		
+	
+	
+	
 
 	private void crearUsuarios(List<XSSFCell> list) throws FileNotFoundException, DocumentException, IOException, NumberFormatException, ModelException {
+		loadFicheroMaestro("src/main/resources/agentTypes.csv");
 		DataFormatter formatter = new DataFormatter();
 		String[] local = list.get(1).getStringCellValue().split(" ");
+		System.out.println(formatter.formatCellValue(list.get(4)));
+		
 		Agent user = new Agent(list.get(0).getStringCellValue(),new Localizacion(Double.parseDouble(local[0]),
 				Double.parseDouble(local[1])), list.get(2).getStringCellValue(), 
-		formatter.formatCellValue(list.get(3)),formatter.formatCellValue(list.get(4)));
+		formatter.formatCellValue(list.get(3)),map.get(formatter.formatCellValue(list.get(4))));
 		InsertR insert = new InsertR();
 		insert.save(user);
 		//getaF().saveData(user);
