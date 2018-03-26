@@ -38,6 +38,7 @@ public class LoadUsers {
 		System.out.println("El objetivo de este proyecto es actuar como modulo de carga de"
 				+ "agentes para un sistema de participacion ciudadana");
 		System.out.println("Realizado por el grupo E3B compuesto por: ");
+		System.out.println("Iván Suárez Castiñerias (UO244730");
 		System.out.println("Pablo Gonzalez Martinez (UO245699)");
 		System.out.println("Diego Álvarez Guinarte (UO251682)");
 		System.out.println("Manuel Junco Diez (UO252010)");

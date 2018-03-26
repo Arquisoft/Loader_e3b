@@ -50,6 +50,7 @@ public class RList implements ReadList {
 	 */
 	@Override
 	public void load(String path) throws FileNotFoundException, DocumentException{
+		loadFicheroMaestro("src/main/resources/agentTypes.csv");
 		InputStream excelFile = null;
 		XSSFWorkbook excel = null;
 		allUsers = new ArrayList<List<XSSFCell>>();
@@ -123,7 +124,7 @@ public class RList implements ReadList {
 		    while((line=br.readLine())!=null){
 		    	System.out.println("line: "+line);
 		        String str[] = line.split(";");
-		        map.put(str[0], str[1]);
+		        map.put(str[1], str[0]);
 		    }
 		  
 		    
@@ -143,7 +144,7 @@ public class RList implements ReadList {
 	
 
 	private void crearUsuarios(List<XSSFCell> list) throws FileNotFoundException, DocumentException, IOException, NumberFormatException, ModelException {
-		loadFicheroMaestro("src/main/resources/agentTypes.csv");
+		
 		DataFormatter formatter = new DataFormatter();
 		String[] local = list.get(1).getStringCellValue().split(" ");
 		System.out.println(formatter.formatCellValue(list.get(4)));
