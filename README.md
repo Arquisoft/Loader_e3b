@@ -20,7 +20,16 @@ Loader e3b
 + Ivan Suarez Castiñeiras (UO244730)
 + Pablo Gonzalez Martinez (UO245699)
 
+### Datos usuarios de prueba
 
+|Nombre                   | Localización           | Email                    | Identificador | Tipo   |
+|-------------------------|------------------------|--------------------------|---------------|--------|
+|Juan Torres Pardo        |                        | juan@example.com         | 90500084Y     | Person |
+|Luis López Fernando      |                        | luis@example.com         | 191160962F    | Person |
+|Ana Torres Pardo         |                        | ana@example.com          | 09940449X     | Person |
+|Sensor_123 2018          | 43.361368, -5.853591   | admin@sensores.com       | sensor_123   | Sensor |
+|Ministerio medioambiente | 43.359486, -5.846986   | ambiente@ministerio.com  | medioambiente | Entity |
+|Space X sensor model A   | 33.921209, -118.327940 | musk@spacex.com          | spacex        | Sensor |
 
 # Instrucciones para ejecutar
 + Importar repositorio a Eclipse desde Github
@@ -32,3 +41,5 @@ Loader e3b
  Adjunto imagen
  
  ![alt text](https://i.imgur.com/4i1CFRR.png)
+ 
+ 
