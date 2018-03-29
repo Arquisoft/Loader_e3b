@@ -25,7 +25,7 @@ public class ParserTest {
 	@Test
 	public void testLoadExcelExito() throws FileNotFoundException, DocumentException {
 		RList ex = new RList();
-		ex.load("src/test/resources/test.xlsx");
+		ex.load("src/test/resources/agents.xlsx");
 
 		assertEquals(ex.getAllUsers().size(), 3);
 
