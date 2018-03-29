@@ -22,12 +22,14 @@ import model.Agent;
 
 public class ParserTest {
 
+	
+	
 	@Test
 	public void testLoadExcelExito() throws FileNotFoundException, DocumentException {
 		RList ex = new RList();
 		ex.load("src/test/resources/agents.xlsx");
 
-		assertEquals(ex.getAllUsers().size(), 3);
+		assertEquals(ex.getAllUsers().size(), 6);
 
 		List<XSSFCell> list1 = ex.getAllUsers().get(0);
 		List<XSSFCell> list2 = ex.getAllUsers().get(1);
@@ -39,7 +41,7 @@ public class ParserTest {
 				st.append(list1.get(i).toString() + " ");
 		}
 
-		assertEquals(st.toString(), "Juan Torres Pardo 32.21 45.34 juan@example.com 1.0 ");
+		assertEquals(st.toString(), "Juan Torres Pardo 32.21 45.34 juan@example.com Person ");
 
 		st = new StringBuilder();
 
@@ -48,7 +50,7 @@ public class ParserTest {
 				st.append(list2.get(i).toString() + " ");
 		}
 
-		assertEquals(st.toString(), "Luis López Fernando 76.14 98.54 luis@example.com 1.0 ");
+		assertEquals(st.toString(), "Luis López Fernando 76.14 98.54 luis@example.com Person ");
 
 		st = new StringBuilder();
 
@@ -57,7 +59,7 @@ public class ParserTest {
 				st.append(list3.get(i).toString() + " ");
 		}
 
-		assertEquals(st.toString(), "Ana Torres Pardo 76.34 57.73 ana@example.com 1.0 ");
+		assertEquals(st.toString(), "Ana Torres Pardo 76.34 57.73 ana@example.com Person ");
 	}
 
 	@Test(expected = FileNotFoundException.class)
