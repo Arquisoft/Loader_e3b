@@ -18,5 +18,6 @@ public class TxtLetter extends Letter{
 		writer.write("Identificador: " + user.getIdentificador());
 		writer.write(System.lineSeparator());
 		writer.write("Clave: " + user.getClave());
+		writer.close();
 	}
 }
