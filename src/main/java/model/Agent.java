@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import model.util.ModelException;
 
 @Entity
-@Table(name = "TAgent")
+@Table(name = "Agents")
 public class Agent implements Serializable {
 	/**
 	 * 
