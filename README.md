@@ -33,11 +33,14 @@ Loader e3b
 
 # Instrucciones para ejecutar
 + Importar repositorio: 
+
 ```git clone https://github.com/Arquisoft/Loader_e3b.git```
 + Navegar a la carpeta del projecto
 + Compilar el projecto : 
+
 ```mvn clean install -U```
 + Ejecutar: 
+
 ```mvn exec:java -Dexec.args="load src/test/resources/agents.xlsx"```
 
 # Instrucciones para ejecutar desde Eclipse
