@@ -32,10 +32,13 @@ Loader e3b
 |Space X sensor model A   | 33.921209, -118.327940 | musk@spacex.com          | spacex        | Sensor |
 
 # Instrucciones para ejecutar
-+ Importar repositorio: git clone https://github.com/Arquisoft/Loader_e3b.git
++ Importar repositorio: 
+```git clone https://github.com/Arquisoft/Loader_e3b.git```
 + Navegar a la carpeta del projecto
-+ Compilar el projecto : mvn clean install -U
-+ Ejecutar: mvn exec:java -Dexec.args="load src/test/resources/agents.xlsx"
++ Compilar el projecto : 
+```mvn clean install -U```
++ Ejecutar: 
+```mvn exec:java -Dexec.args="load src/test/resources/agents.xlsx"```
 
 # Instrucciones para ejecutar desde Eclipse
 + Importar repositorio a Eclipse desde Github
