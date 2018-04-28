@@ -88,7 +88,8 @@ public class AgentTest {
 		assertEquals("sensor123", agentSensor1.getIdentificador());
 		assertEquals("Sensor", agentSensor1.getTipo());
 		assertNotNull(agentSensor1.getLocalizacion());
-		assertTrue("43, -6"==agentSensor1.getLocalizacion());
+		System.out.println(new Localizacion(43,-6).toString());
+		assertTrue(new Localizacion(43,-6).toString().equals(agentSensor1.getLocalizacion()));
 		
 		
 		
