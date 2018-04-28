@@ -22,7 +22,7 @@ public class Agent implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nombre;	
-	private Localizacion location;
+	private String location;
 	private String email;
 	private String ident;
 	private String kind;
@@ -31,14 +31,14 @@ public class Agent implements Serializable {
 	Agent() {
 	}
 
-	public Agent(String nombre, Localizacion localizacion, String email, String identificador, String tipo) throws ModelException {
+	public Agent(String nombre, String localizacion, String email, String identificador, String tipo) throws ModelException {
 		super();
 		this.nombre = nombre;
 		this.location = localizacion;
 		this.email = email;
 		this.ident = identificador;
 		this.kind = tipo;
-		if(tipo.toLowerCase().equals("sensor") && localizacion==null)
+		if(tipo.toLowerCase().equals("sensor") && localizacion==null || localizacion=="")
 			throw new ModelException("Un sensor debe tener localización");
 		generateClave();
 	}
@@ -51,11 +51,11 @@ public class Agent implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public Localizacion getLocalizacion() {
+	public String getLocalizacion() {
 		return location;
 	}
 
-	public void setLocalizacion(Localizacion localizacion) {
+	public void setLocalizacion(String localizacion) {
 		this.location = localizacion;
 	}
 

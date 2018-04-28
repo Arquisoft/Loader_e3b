@@ -29,27 +29,28 @@ import model.Localizacion;
 import model.util.ModelException;
 import reportwriter.ReportWriter;
 
-
 public class RList implements ReadList {
 	private ActionFacade aF = new ActionFacadeClass();
 	private ArrayList<List<XSSFCell>> allUsers;
-	private HashMap<String,String> map;
+	private HashMap<String, String> map;
+
 	/**
-	 * Lee el fichero excel de la ruta pasada por parametro Si el fichero no
-	 * esta en formato excel, detiene la lectura y escribe en el log la causa
-	 * del error. Va leyendo linea por linea(hay un usuario en cada linea): Para
-	 * cada linea crea un objeto Agent y se lo pasa al metodo cargarDatos del
-	 * AtionFacade. Si existe algun fallo de FORMATO se ignora esa linea y se
-	 * pasa a la siguiente, ademas de escribir dicho error en el log.
+	 * Lee el fichero excel de la ruta pasada por parametro Si el fichero no esta en
+	 * formato excel, detiene la lectura y escribe en el log la causa del error. Va
+	 * leyendo linea por linea(hay un usuario en cada linea): Para cada linea crea
+	 * un objeto Agent y se lo pasa al metodo cargarDatos del AtionFacade. Si existe
+	 * algun fallo de FORMATO se ignora esa linea y se pasa a la siguiente, ademas
+	 * de escribir dicho error en el log.
 	 * 
 	 * @param path
 	 *            ruta del fichero
 	 * 
-	 *  @exception FileNotFoundException No se encuentra el fichero excel
-	 * @throws DocumentException 
+	 * @exception FileNotFoundException
+	 *                No se encuentra el fichero excel
+	 * @throws DocumentException
 	 */
 	@Override
-	public void load(String path) throws FileNotFoundException, DocumentException{
+	public void load(String path) throws FileNotFoundException, DocumentException {
 		loadFicheroMaestro("src/main/resources/agentTypes.csv");
 		InputStream excelFile = null;
 		XSSFWorkbook excel = null;
@@ -78,23 +79,23 @@ public class RList implements ReadList {
 				}
 				i++;
 			}
-		} catch(FileNotFoundException ex){
+		} catch (FileNotFoundException ex) {
 			throw ex;
-		}
-		catch (IOException ioe) {
+		} catch (IOException ioe) {
 			System.err.println("Problema con la lectura del excel en la linea " + i);
-			ReportWriter.getInstance().getWriteReport().log(Level.WARNING, "Problema con la lectura del excel en la linea " + i);
+			ReportWriter.getInstance().getWriteReport().log(Level.WARNING,
+					"Problema con la lectura del excel en la linea " + i);
 		} catch (ModelException e) {
 			System.err.println("Se ha intentado crear un sensor sin localización o con valor nulo");
-		}finally {
-			if (excelFile != null){
+		} finally {
+			if (excelFile != null) {
 				try {
 					excelFile.close();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 			}
-			
+
 			if (excel != null) {
 				try {
 					excel.close();
@@ -112,23 +113,22 @@ public class RList implements ReadList {
 	public void setaF(ActionFacade aF) {
 		this.aF = aF;
 	}
-	
-	private void loadFicheroMaestro(String path){
-		
+
+	private void loadFicheroMaestro(String path) {
+
 		BufferedReader br;
 		try {
 			br = new BufferedReader(new FileReader("src/main/resources/agentTypes.csv"));
-			String line =  null;
-		    map = new HashMap<String, String>();
+			String line = null;
+			map = new HashMap<String, String>();
 
-		    while((line=br.readLine())!=null){
-		    	System.out.println("line: "+line);
-		        String str[] = line.split(";");
-		        map.put(str[1], str[0]);
-		    }
-		  
-		    
-		    System.out.println(map);
+			while ((line = br.readLine()) != null) {
+				System.out.println("line: " + line);
+				String str[] = line.split(";");
+				map.put(str[1], str[0]);
+			}
+
+			System.out.println(map);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -136,28 +136,26 @@ public class RList implements ReadList {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    
-	 }
-		
-	
-	
-	
 
-	private void crearUsuarios(List<XSSFCell> list) throws FileNotFoundException, DocumentException, IOException, NumberFormatException, ModelException {
-		
+	}
+
+	private void crearUsuarios(List<XSSFCell> list)
+			throws FileNotFoundException, DocumentException, IOException, NumberFormatException, ModelException {
+
 		DataFormatter formatter = new DataFormatter();
 		String[] local = list.get(1).getStringCellValue().split(" ");
 		System.out.println(formatter.formatCellValue(list.get(4)));
-		
-		Agent user = new Agent(list.get(0).getStringCellValue(),new Localizacion(Double.parseDouble(local[0]),
-				Double.parseDouble(local[1])), list.get(2).getStringCellValue(), 
-		formatter.formatCellValue(list.get(3)),map.get(formatter.formatCellValue(list.get(4))));
+
+		Agent user = new Agent(list.get(0).getStringCellValue(),
+				new Localizacion(Double.parseDouble(local[0]), Double.parseDouble(local[1])).toString(),
+				list.get(2).getStringCellValue(), formatter.formatCellValue(list.get(3)),
+				map.get(formatter.formatCellValue(list.get(4))));
 		InsertR insert = new InsertR();
 		insert.save(user);
-		//getaF().saveData(user);
+		// getaF().saveData(user);
 	}
-	
-	public ArrayList<List<XSSFCell>> getAllUsers(){
+
+	public ArrayList<List<XSSFCell>> getAllUsers() {
 		return allUsers;
 	}
 

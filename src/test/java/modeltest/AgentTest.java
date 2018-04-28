@@ -23,9 +23,9 @@ public class AgentTest {
 		
 		//
 		
-		Agent agentSensor1 = new Agent("Sensor 1",new Localizacion(43,-6),"sensor@gmail.com","sensor123","Sensor");
-		Agent agentSensor1_1= new Agent("Sensor 1.1",new Localizacion(43,-6),"sensor1.1@gmail.com","sensor123","Sensor");
-		Agent agentSensor2= new Agent("Sensor 2",new Localizacion(43,-6),"sensor2@gmail.com","sensor456","Sensor");
+		Agent agentSensor1 = new Agent("Sensor 1",new Localizacion(43,-6).toString(),"sensor@gmail.com","sensor123","Sensor");
+		Agent agentSensor1_1= new Agent("Sensor 1.1",new Localizacion(43,-6).toString(),"sensor1.1@gmail.com","sensor123","Sensor");
+		Agent agentSensor2= new Agent("Sensor 2",new Localizacion(43,-6).toString(),"sensor2@gmail.com","sensor456","Sensor");
 		
 		
 		assertNotNull(agenteCiudadano1);
@@ -80,7 +80,7 @@ public class AgentTest {
 		assertEquals("Ciudadano", agenteCiudadano1.getTipo());
 		assertNull(agenteCiudadano1.getLocalizacion());
 		
-		Agent agentSensor1 = new Agent("Sensor 1",new Localizacion(43,-6),"sensor@gmail.com","sensor123","Sensor");
+		Agent agentSensor1 = new Agent("Sensor 1",new Localizacion(43,-6).toString(),"sensor@gmail.com","sensor123","Sensor");
 		
 		assertNotNull(agentSensor1);
 		assertEquals("Sensor 1", agentSensor1.getNombre());
@@ -88,8 +88,8 @@ public class AgentTest {
 		assertEquals("sensor123", agentSensor1.getIdentificador());
 		assertEquals("Sensor", agentSensor1.getTipo());
 		assertNotNull(agentSensor1.getLocalizacion());
-		assertTrue(43==agentSensor1.getLocalizacion().getLatitud());
-		assertTrue(-6==agentSensor1.getLocalizacion().getLongitud());
+		assertTrue("43, -6"==agentSensor1.getLocalizacion());
+		
 		
 		
 		new Agent("Sensor 1",null,"sensor@gmail.com","sensor123","Sensor");
