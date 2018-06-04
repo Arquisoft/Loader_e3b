@@ -26,6 +26,7 @@ import executer.ActionFacade;
 import executer.ActionFacadeClass;
 import model.Agent;
 import model.Localizacion;
+import model.Operario;
 import model.util.ModelException;
 import reportwriter.ReportWriter;
 
@@ -144,14 +145,27 @@ public class RList implements ReadList {
 
 		DataFormatter formatter = new DataFormatter();
 		String[] local = list.get(1).getStringCellValue().split(" ");
-		System.out.println(formatter.formatCellValue(list.get(4)));
+//		System.out.println(formatter.formatCellValue(list.get(4)));
+		
+		if(!(formatter.formatCellValue(list.get(4)).equals("Operario"))) { //persona,entidad,sensor
 
 		Agent user = new Agent(list.get(0).getStringCellValue(),
 				new Localizacion(Double.parseDouble(local[0]), Double.parseDouble(local[1])).toString(),
 				list.get(2).getStringCellValue(), formatter.formatCellValue(list.get(3)),
 				map.get(formatter.formatCellValue(list.get(4))));
+		
 		InsertR insert = new InsertR();
 		insert.save(user);
+		}
+		else //operario
+		{
+			
+			Operario oper= new Operario(list.get(2).getStringCellValue(),list.get(3).getStringCellValue());
+			
+			InsertR insert = new InsertR();
+			insert.save(oper);
+			
+		}
 		// getaF().saveData(user);
 	}
 

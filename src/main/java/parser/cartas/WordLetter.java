@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import model.Agent;
+import model.Operario;
 
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
@@ -33,5 +34,24 @@ public class WordLetter extends Letter{
 		documento.write(carta);
 		documento.close();
 		carta.close();
+	}
+
+	@Override
+	public void createLetter(Operario user) throws DocumentException, FileNotFoundException, IOException {
+		XWPFDocument documento = new XWPFDocument();
+		File folder = new File("carta/word");
+		folder.mkdir();
+		carta = new FileOutputStream(
+				"cartas/word/" + user.getEmail() + ".docx");
+		XWPFParagraph paragraph = documento.createParagraph();
+		XWPFRun run = paragraph.createRun();
+		run.setText("Email: " + user.getEmail()+"\n");
+		run.addCarriageReturn();
+		run.setText("Identificador/clave: " + user.getPassword()+"\n");
+		run.addBreak();		
+		documento.write(carta);
+		documento.close();
+		carta.close();
+		
 	}
 }

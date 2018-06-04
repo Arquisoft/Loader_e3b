@@ -12,6 +12,7 @@ import javax.persistence.PersistenceException;
 import com.lowagie.text.DocumentException;
 
 import model.Agent;
+import model.Operario;
 import parser.cartas.Letter;
 import parser.cartas.PdfLetter;
 import parser.cartas.TxtLetter;
@@ -66,5 +67,37 @@ public class InsertP implements Insert {
 	@Override
 	public List<Agent> findByEmail(String email) {
 		return UserFinder.findByEmail(email);
+	}
+
+	@Override
+	public Operario save(Operario user) throws FileNotFoundException, DocumentException, IOException {
+		EntityManager mapper = Jpa.createEntityManager();
+		EntityTransaction trx = mapper.getTransaction();
+		trx.begin();
+		try {
+			if (!UserFinder.findByIdentificador(user.getEmail()).isEmpty()) {
+				ReportWriter.getInstance().getWriteReport().log(Level.WARNING,
+						"El usuario con el identificador " + user.getEmail() + " ya existe en la base de datos");
+				trx.rollback();
+			}else {
+				Jpa.getManager().persist(user);
+				trx.commit();
+				System.out.println("Operario añadido correctamente - Datos del operario  :  "+user.getEmail() + " ; ");
+				Letter letter = new PdfLetter();
+				letter.createLetter(user);
+				letter = new TxtLetter();
+				letter.createLetter(user);
+				letter = new WordLetter();
+				letter.createLetter(user);
+			}
+		} catch (PersistenceException ex) {
+			ReportWriter.getInstance().getWriteReport().log(Level.WARNING, "Error de la BBDD");
+			if (trx.isActive())
+				trx.rollback();
+		} finally {
+			if (mapper.isOpen())
+				mapper.close();
+		}
+		return user;
 	}
 }

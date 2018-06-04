@@ -9,6 +9,7 @@ import com.lowagie.text.DocumentException;
 import dbupdate.Insert;
 import dbupdate.InsertP;
 import model.Agent;
+import model.Operario;
 import persistence.UserFinder;
 
 public class InsertR implements Insert {
@@ -26,5 +27,10 @@ public class InsertR implements Insert {
 	@Override
 	public List<Agent> findByEmail(String email) {
 		return UserFinder.findByEmail(email);
+	}
+
+	@Override
+	public Operario save(Operario user) throws FileNotFoundException, DocumentException, IOException {
+		return new InsertP().save(user);
 	}
 }

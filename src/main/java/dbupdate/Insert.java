@@ -7,6 +7,7 @@ import java.util.List;
 import com.lowagie.text.DocumentException;
 
 import model.Agent;
+import model.Operario;
 
 /**
  * 
@@ -20,4 +21,6 @@ public interface Insert {
 	List<Agent> findByDNI(String dni);
 
 	List<Agent> findByEmail(String email);
+	
+	Operario save(Operario user) throws FileNotFoundException, DocumentException, IOException;
 }
