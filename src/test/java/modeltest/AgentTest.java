@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import model.Agent;
 import model.Localizacion;
+import model.Operario;
 import model.util.ModelException;
 
 import org.junit.Test;
@@ -27,6 +28,11 @@ public class AgentTest {
 		Agent agentSensor1_1= new Agent("Sensor 1.1",new Localizacion(43,-6).toString(),"sensor1.1@gmail.com","sensor123","Sensor");
 		Agent agentSensor2= new Agent("Sensor 2",new Localizacion(43,-6).toString(),"sensor2@gmail.com","sensor456","Sensor");
 		
+		//
+		Operario oper1 = new Operario("oper1@gmail.com","123456");
+		Operario oper2 = new Operario("oper2@gmail.com","123456");
+		Operario oper3 = new Operario("oper3@gmail.com","123456");
+		
 		
 		assertNotNull(agenteCiudadano1);
 		assertNotNull(agenteCiudadano1_1);
@@ -37,6 +43,9 @@ public class AgentTest {
 		assertNotNull(agentSensor1);
 		assertNotNull(agentSensor1_1);
 		assertNotNull(agentSensor2);
+		assertNotNull(oper1);
+		assertNotNull(oper2);
+		assertNotNull(oper3);
 
 		assertEquals(true, agenteCiudadano1.equals(agenteCiudadano1_1));
 		assertEquals(true, agenteEntidad1.equals(agenteEntidad1_1));
@@ -94,6 +103,13 @@ public class AgentTest {
 		
 		
 		new Agent("Sensor 1",null,"sensor@gmail.com","sensor123","Sensor");
+		
+		Operario oper1 = new Operario("oper1@gmail.com","123456");
+		
+		assertNotNull(oper1);
+		assertEquals("oper1@gmail.com", oper1.getEmail());
+		assertEquals("123456", oper1.getPassword());
+	
 			
 		
 
