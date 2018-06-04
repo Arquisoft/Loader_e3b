@@ -147,7 +147,7 @@ public class RList implements ReadList {
 		String[] local = list.get(1).getStringCellValue().split(" ");
 //		System.out.println(formatter.formatCellValue(list.get(4)));
 		
-		if(!(formatter.formatCellValue(list.get(4)).equals("Operario"))) { //persona,entidad,sensor
+		if(!(list.get(4).getStringCellValue().equals("4"))) { //persona,entidad,sensor
 
 		Agent user = new Agent(list.get(0).getStringCellValue(),
 				new Localizacion(Double.parseDouble(local[0]), Double.parseDouble(local[1])).toString(),
