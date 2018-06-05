@@ -79,7 +79,6 @@
 			<version>2.1.7</version>
 		</dependency>
 
-
 		<!-- https://mvnrepository.com/artifact/postgresql/postgresql -->
 		<dependency>
 			<groupId>postgresql</groupId>
