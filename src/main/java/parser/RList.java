@@ -19,6 +19,7 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.beans.factory.annotation.Value;
 
 import com.lowagie.text.DocumentException;
 
@@ -30,11 +31,16 @@ import model.Operario;
 import model.util.ModelException;
 import reportwriter.ReportWriter;
 
+
 public class RList implements ReadList {
 	private ActionFacade aF = new ActionFacadeClass();
 	private ArrayList<List<XSSFCell>> allUsers;
 	private HashMap<String, String> map;
 
+
+	@Value("${csv.filepathname:tipo_agentes.csv}") 
+	private static String csv_filepathname; //"src/main/resources/agentTypes.csv"
+	
 	/**
 	 * Lee el fichero excel de la ruta pasada por parametro Si el fichero no esta en
 	 * formato excel, detiene la lectura y escribe en el log la causa del error. Va
@@ -52,7 +58,7 @@ public class RList implements ReadList {
 	 */
 	@Override
 	public void load(String path) throws FileNotFoundException, DocumentException {
-		loadFicheroMaestro("src/main/resources/agentTypes.csv");
+		loadFicheroMaestro(csv_filepathname);
 		InputStream excelFile = null;
 		XSSFWorkbook excel = null;
 		allUsers = new ArrayList<List<XSSFCell>>();
@@ -119,7 +125,7 @@ public class RList implements ReadList {
 
 		BufferedReader br;
 		try {
-			br = new BufferedReader(new FileReader("src/main/resources/agentTypes.csv"));
+			br = new BufferedReader(new FileReader(csv_filepathname));
 			String line = null;
 			map = new HashMap<String, String>();
 
