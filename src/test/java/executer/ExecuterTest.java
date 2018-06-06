@@ -18,8 +18,17 @@ import model.util.ModelException;
 import persistence.UserFinder;
 import persistence.util.Jpa;
 
+@TestPropertySource(properties = { 
+		"spring.datasource.url = jdbc:h2:mem:test;MODE=PostgreSQL;DB_CLOSE_ON_EXIT=FALSE",
+		"spring.datasource.username=postgres", 
+		"spring.datasource.password=changeit",
+		"spring.jpa.hibernate.ddl-auto=create-drop", 
+		"spring.datasource.driverClassName=org.h2.Driver" 
+})
 public class ExecuterTest {
 
+	
+	
 	@Test
 	public void testActionSingleton() throws FileNotFoundException, DocumentException, IOException, ModelException {
 		ActionSingleton aS = ActionSingleton.getInstance();
