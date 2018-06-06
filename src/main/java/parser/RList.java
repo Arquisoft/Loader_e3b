@@ -179,4 +179,25 @@ public class RList implements ReadList {
 		return allUsers;
 	}
 
+	public void loadSimulacion(String path) throws FileNotFoundException {
+		
+		InputStream excelFile = null;
+		XSSFWorkbook excel = null;
+		allUsers = new ArrayList<List<XSSFCell>>();
+		int i = 0;
+		try {
+			excelFile = new FileInputStream(path);
+			excel = new XSSFWorkbook(excelFile);
+			
+			}
+			catch (FileNotFoundException ex) {
+			throw ex;
+		} catch (IOException ioe) {
+			System.err.println("Problema con la lectura del excel en la linea " + i);
+			ReportWriter.getInstance().getWriteReport().log(Level.WARNING,
+					"Problema con la lectura del excel en la linea " + i);
+		
+	}
+
+}
 }
