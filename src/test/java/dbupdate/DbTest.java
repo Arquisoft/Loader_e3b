@@ -10,7 +10,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,6 +17,7 @@ import com.lowagie.text.DocumentException;
 
 import executer.ActionSingleton;
 import model.Agent;
+import model.Operario;
 import model.util.ModelException;
 import persistence.UserFinder;
 import persistence.util.Jpa;
@@ -25,6 +25,7 @@ import persistence.util.Jpa;
 public class DbTest {
 
 	private Agent user1,user2;
+	private Operario oper1,oper2;
 	
 	
 	@Before
@@ -33,6 +34,9 @@ public class DbTest {
 		ActionSingleton aS = ActionSingleton.getInstance();
 		user1 = new Agent("Dani",null,"dani35@gmail.com","dani123","Ciudadano");
 		aS.getAF().saveData(user1);
+		
+		oper1 = new Operario("operario1@gmail.com","123456");
+		aS.getAF().saveData(oper1);
 
 	}
 	
@@ -63,6 +67,26 @@ public class DbTest {
 		assertEquals(test.get(0).getIdentificador(), "dani123");
 		assertEquals(test.get(0).getNombre(), "Dani");
 		assertNull(test.get(0).getLocalizacion());
+
+		trx.commit();
+		mapper.close();
+	}
+	
+	@Test
+	public void operarioYaExistente() throws FileNotFoundException, DocumentException, IOException, ModelException {
+		
+		ActionSingleton aS = ActionSingleton.getInstance();
+		 oper2 = new Operario("operario1@gmail.com","123456");
+		 aS.getAF().saveData(oper2);
+
+		EntityManager mapper = Jpa.createEntityManager();
+		EntityTransaction trx = mapper.getTransaction();
+		trx.begin();
+
+		List<Operario> test = UserFinder.operarioFindByEmail("operario1@gmail.com");
+		assertEquals(test.size(),1);
+		assertEquals(test.get(0).getEmail(), "operario1@gmail.com");
+		assertEquals(test.get(0).getPassword(), "123456");		
 
 		trx.commit();
 		mapper.close();
@@ -100,6 +124,20 @@ public class DbTest {
 		assertEquals(aBorrar.size(),1);
 		Jpa.getManager().remove(aBorrar.get(0));
 		List<Agent> test = UserFinder.findByEmail("dani35@gmail.com");
+		assertEquals(test.size(),0);
+		trx.commit();
+		mapper.close();
+	}
+	
+	@Test
+	public void deletingOperario() {
+		EntityManager mapper = Jpa.createEntityManager();
+		EntityTransaction trx = mapper.getTransaction();
+		trx.begin();
+		List<Operario> aBorrar = UserFinder.operarioFindByEmail("operario1@gmail.com");
+		assertEquals(aBorrar.size(),1);
+		Jpa.getManager().remove(aBorrar.get(0));
+		List<Operario> test = UserFinder.operarioFindByEmail("operario1@gmail.com");
 		assertEquals(test.size(),0);
 		trx.commit();
 		mapper.close();

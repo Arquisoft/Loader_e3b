@@ -13,5 +13,9 @@
     <named-query name="User.findByEmail">
         <query>select u from Agent u where u.email = ?1</query>
     </named-query>
+    
+    <named-query name="Operario.findByEmail">
+        <query>select u from Operario u where u.email = ?1</query>
+    </named-query>
 
 </entity-mappings>
