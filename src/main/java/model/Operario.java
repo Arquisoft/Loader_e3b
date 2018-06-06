@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import model.util.ModelException;
+
 @Entity
 @Table(name = "TOperarios") 
 public class Operario {
@@ -32,17 +34,18 @@ public class Operario {
 	Operario() {
 	}
 	
-	public Operario(String email, String password) {
+	public Operario(String email, String password) throws ModelException {
 		super();
 		this.email = email;
-		this.password = password;
+		if(password==null || password.isEmpty())
+			throw new ModelException("Un sensor debe tener localización");
+		else
+			this.password = password;
 	}
 	
 	
-	public Operario(String email, String password, String role) {
-		super();
-		this.email = email;
-		this.password = password;
+	public Operario(String email, String password, String role) throws ModelException {
+		this(email, password);
 		this.role = role;
 	}
 	
