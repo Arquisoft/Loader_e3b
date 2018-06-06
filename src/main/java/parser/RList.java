@@ -38,8 +38,8 @@ public class RList implements ReadList {
 	private HashMap<String, String> map;
 
 
-	@Value("${csv.filepathname:tipo_agentes.csv}") 
-	private static String csv_filepathname; //"src/main/resources/agentTypes.csv"
+//	@Value("${csv.filepathname:tipo_agentes.csv}") 
+	private static String csv_filepathname ="src/main/resources/agentTypes.csv";
 	
 	/**
 	 * Lee el fichero excel de la ruta pasada por parametro Si el fichero no esta en
