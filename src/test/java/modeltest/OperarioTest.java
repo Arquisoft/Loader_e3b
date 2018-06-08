@@ -21,6 +21,7 @@ public class OperarioTest {
 		Operario oper3 = new Operario("oper3@gmail.com","123456");
 		Operario oper4 = new Operario("oper4@gmail.com","123456","Admin");
 		
+		assertEquals("Admin", oper4.getRole());
 		
 		Operario oper5  = new Operario("oper25@gmail.com","123456");
 		
@@ -37,15 +38,18 @@ public class OperarioTest {
 		assertFalse(oper1.equals( new Agent("Entidad 1",null,"entidad123@gmail.com","entidad123","Entidad")));
 		assertFalse(oper1.equals(oper4));
 		oper1.setRole(null);
+		oper5.setRole(null);
 		assertFalse(oper1.equals(oper5));
 		oper1.setPassword(null);
+		oper5.setPassword(null);
 		assertFalse(oper1.equals(oper5));
 		oper1.setId(null);
+		oper5.setId(null);
 		assertFalse(oper1.equals(oper5));
 		oper1.setEmail(null);
 		assertFalse(oper1.equals(oper5));
 		oper5.setEmail(null);
-		assertFalse(oper1.equals(oper5));
+		assertTrue(oper1.equals(oper5));
 		
 	}
 
@@ -77,14 +81,21 @@ public class OperarioTest {
 	@Test
 	public void testHashCode() throws ModelException {
 		Operario oper4 = new Operario("oper4@gmail.com","123456","Admin");
+		Agent agente = new Agent("Dani",null,"dani35@gmail.com","dani123","Ciudadano");
+		Incidence incidence = new Incidence(agente, "incidencia", "Se ha producido una incidencia", new Localizacion(43,-6).toString(), null);
+		
 		//compruebo hashCode del ultimo operario
 		assertEquals(oper4.hashCode(), -228767646);
 		oper4.setRole(null);
 		assertEquals(oper4.hashCode(), -291883725);
 		oper4.setPassword(null);
 		assertEquals(oper4.hashCode(), 1984917302);
+		oper4.añadirIncidencia(incidence);
+		assertEquals(oper4.hashCode(), 1768972570);
+		oper4.setId((long) 8999);
+		assertEquals(oper4.hashCode(), 2037061779);
 		oper4.setEmail(null);
-		assertEquals(oper4.hashCode(), 28629151);
+		assertEquals(oper4.hashCode(), 80773628);
 	}
 	
 	@Test
