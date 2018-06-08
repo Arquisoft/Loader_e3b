@@ -3,6 +3,7 @@ package modeltest;
 import static org.junit.Assert.*;
 
 import model.Agent;
+import model.Incidence;
 import model.Localizacion;
 import model.Operario;
 import model.util.ModelException;
@@ -132,5 +133,21 @@ public class AgentTest {
 		agenteCiudadano1.toString();
 	}
 	
-
+	@Test
+	public void testEqualsFal() throws ModelException {		
+		//coordenadas opcionales 
+		Agent agenteCiudadano1 = new Agent("Dani",null,"dani35@gmail.com","dani123","Ciudadano");
+		Agent agenteCiudadano1_1 = new Agent("Dani",null,"dani35@gmail.com",null,"Ciudadano");
+				
+		Incidence inc= new Incidence();
+		
+		
+		assertNotNull(agenteCiudadano1);
+		assertNotNull(agenteCiudadano1_1);
+		
+		assertFalse(agenteCiudadano1.equals(null));
+		assertFalse(agenteCiudadano1.equals(inc));
+		assertFalse(agenteCiudadano1.equals(agenteCiudadano1_1));
+		
+	}
 }

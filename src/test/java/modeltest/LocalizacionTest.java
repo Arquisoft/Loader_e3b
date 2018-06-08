@@ -32,12 +32,28 @@ public class LocalizacionTest {
 	}
 	@Test
 	public void testConstructor() {
+		Localizacion l= new Localizacion();
+		assertNotNull(l);
+	
 		Localizacion l1=new Localizacion(45.6,5);		
-		
-		
 		assertNotNull(l1);
 		assertEquals(45.6,l1.getLatitud(),0.1);
 		assertEquals(5,l1.getLongitud(),0.1);
+	
+		
+				
+	}
+	@Test
+	public void testEqualsFal() {
+		Localizacion l1=new Localizacion(40.6,5);		
+		Localizacion l2=new Localizacion(45.6,5);	
+		assertNotNull(l1);
+		assertNotNull(l2);
+		assertFalse(l1.equals(l2));
+		assertFalse(l1.equals(null));
+		assertTrue(l1.equals(l1));
+		assertFalse(l1.equals(new Integer(5)));
+		
 		
 				
 	}

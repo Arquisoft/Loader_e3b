@@ -108,5 +108,30 @@ public class OperarioTest {
 		oper1.añadirIncidencia(incidence);
 		assertEquals(1, oper1.getIncidencias().size());
 	}
+	
+	@Test
+	public void testEqualsFal() throws ModelException {
+		
+		Operario oper1 = new Operario("oper1@gmail.com","123456");
+		Operario oper2 = new Operario("oper1@gmail.com","123456");
+		Operario oper3 = new Operario("oper1@gmail.com","12");
+		Operario oper4 = new Operario("oper1@gmail.com","12456","admin");
+		Incidence inc= new Incidence();
+		oper2.añadirIncidencia(inc);
+		
+		
+		assertNotNull(oper1);
+		assertNotNull(oper2);
+		assertNotNull(oper3);
+		assertNotNull(oper4);
+		assertNull(oper1.getId());
+	
+		
+		assertFalse(oper1.equals(null));
+		assertFalse(oper1.equals(oper2));
+		assertFalse(oper1.equals(oper3));
+		assertFalse(oper1.equals(oper4));
+		assertFalse(oper1.equals(inc));
+	}
 
 }
