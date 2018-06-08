@@ -129,7 +129,8 @@ public class AgentTest {
 		assertEquals("pepe123",agenteCiudadano1.getIdentificador());
 		agenteCiudadano1.setEmail("pepe@gmail.com");
 		assertEquals("pepe@gmail.com",agenteCiudadano1.getEmail());
-
+		agenteCiudadano1.toString();
 	}
+	
 
 }
