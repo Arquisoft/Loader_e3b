@@ -19,7 +19,6 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.springframework.beans.factory.annotation.Value;
 
 import com.lowagie.text.DocumentException;
 
@@ -182,6 +181,7 @@ public class RList implements ReadList {
 	public void loadSimulacion(String path) throws FileNotFoundException {
 		
 		InputStream excelFile = null;
+		@SuppressWarnings("unused")
 		XSSFWorkbook excel = null;
 		allUsers = new ArrayList<List<XSSFCell>>();
 		int i = 0;
