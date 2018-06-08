@@ -12,6 +12,7 @@ import model.util.ModelException;
 
 public class OperarioTest {
 
+	@SuppressWarnings("unlikely-arg-type")
 	@Test
 	public void testEquals() throws ModelException {		
 	

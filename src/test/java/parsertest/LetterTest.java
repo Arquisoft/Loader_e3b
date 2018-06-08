@@ -4,17 +4,10 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-
 import org.junit.Test;
-
-import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
-import com.lowagie.text.pdf.PdfWriter;
-
 import model.Agent;
-import model.Operario;
 import model.util.ModelException;
 import parser.cartas.Letter;
 import parser.cartas.PdfLetter;
