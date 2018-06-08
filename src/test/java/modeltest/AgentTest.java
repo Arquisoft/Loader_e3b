@@ -108,10 +108,27 @@ public class AgentTest {
 		
 		assertNotNull(oper1);
 		assertEquals("oper1@gmail.com", oper1.getEmail());
-		assertEquals("123456", oper1.getPassword());
+		assertEquals("123456", oper1.getPassword());		
+
+	}
 	
-			
-		
+	
+	@Test
+	public void testSettersGetters() throws ModelException {
+	
+		Agent agenteCiudadano1 = new Agent("Dani",null,"dani35@gmail.com","dani123","Ciudadano");	
+
+		Localizacion localizacion = new Localizacion(1, 1);
+		agenteCiudadano1.setNombre("Pepe");
+		assertEquals("Pepe",agenteCiudadano1.getNombre());
+		agenteCiudadano1.setTipo("Sensor");
+		assertEquals("Sensor",agenteCiudadano1.getTipo());
+		agenteCiudadano1.setLocalizacion(localizacion.toString());
+		assertEquals(localizacion.toString(),agenteCiudadano1.getLocalizacion());
+		agenteCiudadano1.setIdentificador("pepe123");
+		assertEquals("pepe123",agenteCiudadano1.getIdentificador());
+		agenteCiudadano1.setEmail("pepe@gmail.com");
+		assertEquals("pepe@gmail.com",agenteCiudadano1.getEmail());
 
 	}
 
