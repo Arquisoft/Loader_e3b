@@ -1,4 +1,4 @@
-package parser.cartas;
+package es.uniovi.asw.e3b.loader_e3b.parser.cartas;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -8,8 +8,8 @@ import java.io.Writer;
 
 import com.lowagie.text.DocumentException;
 
-import model.Agent;
-import model.Operario;
+import es.uniovi.asw.e3b.loader_e3b.model.Agent;
+import es.uniovi.asw.e3b.loader_e3b.model.Operario;
 
 public class TxtLetter extends Letter{
 	private Writer writer;

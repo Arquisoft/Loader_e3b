@@ -1,4 +1,4 @@
-package parser;
+package es.uniovi.asw.e3b.loader_e3b.parser;
 
 import java.io.FileNotFoundException;
 

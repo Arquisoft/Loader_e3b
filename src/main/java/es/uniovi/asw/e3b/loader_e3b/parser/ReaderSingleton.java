@@ -1,11 +1,11 @@
-package parser;
+package es.uniovi.asw.e3b.loader_e3b.parser;
 
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
 
 import com.lowagie.text.DocumentException;
 
-import reportwriter.ReportWriter;
+import es.uniovi.asw.e3b.loader_e3b.reportwriter.ReportWriter;
 
 public class ReaderSingleton {
 	private static ReaderSingleton instance;

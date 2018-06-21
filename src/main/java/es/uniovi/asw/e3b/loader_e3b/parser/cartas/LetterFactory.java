@@ -1,4 +1,4 @@
-package parser.cartas;
+package es.uniovi.asw.e3b.loader_e3b.parser.cartas;
 
 public class LetterFactory {
 	

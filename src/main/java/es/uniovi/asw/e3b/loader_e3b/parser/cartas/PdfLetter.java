@@ -1,4 +1,4 @@
-package parser.cartas;
+package es.uniovi.asw.e3b.loader_e3b.parser.cartas;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -9,8 +9,8 @@ import com.lowagie.text.DocumentException;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfWriter;
 
-import model.Agent;
-import model.Operario;
+import es.uniovi.asw.e3b.loader_e3b.model.Agent;
+import es.uniovi.asw.e3b.loader_e3b.model.Operario;
 
 public class PdfLetter extends Letter{
 	private Document document;

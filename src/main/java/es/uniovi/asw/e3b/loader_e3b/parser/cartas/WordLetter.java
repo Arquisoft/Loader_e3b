@@ -1,12 +1,12 @@
-package parser.cartas;
+package es.uniovi.asw.e3b.loader_e3b.parser.cartas;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import model.Agent;
-import model.Operario;
+import es.uniovi.asw.e3b.loader_e3b.model.Agent;
+import es.uniovi.asw.e3b.loader_e3b.model.Operario;
 
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
