@@ -29,7 +29,7 @@ Loader e3b
 |Ana Torres Pardo         |                        | ana@example.com          | 09940449X     | Person |
 |Sensor_123 2018          | 43.361368, -5.853591   | admin@sensores.com       | sensor_123   | Sensor |
 |Ministerio medioambiente | 43.359486, -5.846986   | ambiente@ministerio.com  | medioambiente | Entity |
-|Space X sensor model A   | 33.921209, -118.327940 | musk@spacex.com          | spacex        | Sensor |
+|Space X sensor es.uniovi.asw.e3b.loader_e3b.model A   | 33.921209, -118.327940 | musk@spacex.com          | spacex        | Sensor |
 
 # Instrucciones para ejecutar
 + Importar repositorio: 
@@ -46,7 +46,7 @@ Loader e3b
 # Instrucciones para ejecutar desde Eclipse
 + Importar repositorio a Eclipse desde Github
 + Botón derecho - Configure - Convert to Maven project y esperar a que se descarguen las dependencias
-+ Ejecutar LoadUsers (en el paquete main) con los argumentos load src/test/resources/test.xlsx. 
++ Ejecutar LoadUsers (en el paquete es.uniovi.asw.e3b.loader_e3b.main) con los argumentos load src/test/resources/test.xlsx. 
  
  Para especificar argumentos en Eclipse, acceder al menú Run Configurations - LoadUsers - Arguments
  

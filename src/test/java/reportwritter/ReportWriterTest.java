@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import reportwriter.ReportWriter;
+import es.uniovi.asw.e3b.loader_e3b.reportwriter.ReportWriter;
 
 public class ReportWriterTest {
 

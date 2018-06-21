@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import model.util.ModelException;
+import es.uniovi.asw.e3b.loader_e3b.model.util.ModelException;
 
 public class ModelExceptionTest {
 

@@ -10,12 +10,12 @@
 		<properties>
 			<property name="eclipselink.ddl-generation" 
 					  value="drop-and-create-tables"/>
-			<property name="javax.persistence.jdbc.driver" 
+			<property name="es.uniovi.asw.e3b.loader_e3b.persistence.jdbc.driver"
 					  value="org.postgresql.Driver" />
-			<property name="javax.persistence.jdbc.url" 
+			<property name="es.uniovi.asw.e3b.loader_e3b.persistence.jdbc.url"
 					  value="jdbc:postgresql://localhost:5432/postgres" />
-			<property name="javax.persistence.jdbc.user" value="postgres" />
-			<property name="javax.persistence.jdbc.password" value="changeit" />
+			<property name="es.uniovi.asw.e3b.loader_e3b.persistence.jdbc.user" value="postgres" />
+			<property name="es.uniovi.asw.e3b.loader_e3b.persistence.jdbc.password" value="changeit" />
 			<property name="hibernate.dialect" 
 					  value="org.hibernate.dialect.PostgreSQLDialect" />
             <property name="hibernate.show_sql" value="true" />

@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import dbupdate.InsertP;
+import es.uniovi.asw.e3b.loader_e3b.dbupdate.InsertP;
 
 public class InsertTest {
 

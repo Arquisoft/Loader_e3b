@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import java.util.logging.Logger;
 import org.junit.Test;
 
-import reportwriter.WriteReportImpl;
+import es.uniovi.asw.e3b.loader_e3b.reportwriter.WriteReportImpl;
 
 public class WriteReportImplTest {
 

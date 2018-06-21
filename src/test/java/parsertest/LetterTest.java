@@ -7,12 +7,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import org.junit.Test;
 import com.lowagie.text.DocumentException;
-import model.Agent;
-import model.util.ModelException;
-import parser.cartas.Letter;
-import parser.cartas.PdfLetter;
-import parser.cartas.TxtLetter;
-import parser.cartas.WordLetter;
+import es.uniovi.asw.e3b.loader_e3b.model.Agent;
+import es.uniovi.asw.e3b.loader_e3b.model.util.ModelException;
+import es.uniovi.asw.e3b.loader_e3b.parser.cartas.Letter;
+import es.uniovi.asw.e3b.loader_e3b.parser.cartas.PdfLetter;
+import es.uniovi.asw.e3b.loader_e3b.parser.cartas.TxtLetter;
+import es.uniovi.asw.e3b.loader_e3b.parser.cartas.WordLetter;
 
 public class LetterTest {
 

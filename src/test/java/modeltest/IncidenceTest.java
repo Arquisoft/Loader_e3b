@@ -11,12 +11,12 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import model.Agent;
-import model.Estado;
-import model.Incidence;
-import model.Localizacion;
-import model.Operario;
-import model.util.ModelException;
+import es.uniovi.asw.e3b.loader_e3b.model.Agent;
+import es.uniovi.asw.e3b.loader_e3b.model.Estado;
+import es.uniovi.asw.e3b.loader_e3b.model.Incidence;
+import es.uniovi.asw.e3b.loader_e3b.model.Localizacion;
+import es.uniovi.asw.e3b.loader_e3b.model.Operario;
+import es.uniovi.asw.e3b.loader_e3b.model.util.ModelException;
 
 public class IncidenceTest {
 

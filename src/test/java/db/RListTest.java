@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import com.lowagie.text.DocumentException;
 
-import parser.RList;
+import es.uniovi.asw.e3b.loader_e3b.parser.RList;
 
 public class RListTest {
 

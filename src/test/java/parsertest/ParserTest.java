@@ -3,7 +3,7 @@ package parsertest;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
-import parser.*;
+import es.uniovi.asw.e3b.loader_e3b.parser.*;
 import static org.junit.Assert.*;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.junit.Test;
