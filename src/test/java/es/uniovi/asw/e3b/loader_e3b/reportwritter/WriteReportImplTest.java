@@ -1,4 +1,4 @@
-package reportwritter;
+package es.uniovi.asw.e3b.loader_e3b.reportwritter;
 
 import java.util.logging.Level;
 import static org.junit.Assert.*;

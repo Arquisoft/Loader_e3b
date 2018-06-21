@@ -1,4 +1,4 @@
-package parsertest;
+package es.uniovi.asw.e3b.loader_e3b.parsertest;
 
 import static org.junit.Assert.assertTrue;
 

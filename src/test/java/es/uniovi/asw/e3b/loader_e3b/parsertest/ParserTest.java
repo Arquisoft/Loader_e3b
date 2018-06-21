@@ -1,4 +1,4 @@
-package parsertest;
+package es.uniovi.asw.e3b.loader_e3b.parsertest;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

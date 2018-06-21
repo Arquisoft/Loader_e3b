@@ -1,4 +1,4 @@
-package modeltest;
+package es.uniovi.asw.e3b.loader_e3b.modeltest;
 
 import static org.junit.Assert.*;
 

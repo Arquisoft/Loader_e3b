@@ -1,4 +1,4 @@
-package db;
+package es.uniovi.asw.e3b.loader_e3b.db;
 
 import static org.junit.Assert.*;
 
